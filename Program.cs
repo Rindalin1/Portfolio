@@ -1,72 +1,28 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Diagnostics;
-using System.Net;
-using System.Text.RegularExpressions;
+﻿using System;
 
-
-    class Program
-    { 
-       static void Main(string[] args)
+namespace TopTrumps
 {
-            try
+class Program
 {
-            string value;
-                 do
-           {
-             int res;
-             Console.Write("Enter a number: ");
-             int number = int.Parse(Console.ReadLine());
+    static void Main(string[]args)
+    {
 
-             Console.Write("Enter second number: ");
-             int number2 = int.Parse(Console.ReadLine());
-
-  
-            string[] symbols = {"/", "*", "+", "-",};
-
-             foreach (string symbol in symbols)
-           {
-              Console.WriteLine(symbol);
-                                         }
-           Console.WriteLine("Enter the method of symbols provided");
-           string Symbol = Console.ReadLine(); 
-
-            switch (Symbol)
-           {
-             case "+":
-             res = number+number2;
-             Console.WriteLine("Addition: " + res);
-             break;
-             case "/":
-            res = number/number2;
-            Console.WriteLine("Divide: " + res);
-             break;
-             case "*":
-             res = number*number2;
-            Console.WriteLine("Multiplication: " + res);
-            break;
-            case "-":
-            res = number-number2;
-            Console.WriteLine("Subract: " + res);
-            break;        
-            default:
-            Console.WriteLine("Wrong input");
-            break;
-    }
     
-    Console.Write("Do you want to do another equation:  (y/n)");
-    value = Console.ReadLine();
-           }
+    //Input/Output: Welcoming the player to the game.
 
-   while (value=="y" || value=="Y");
-   
-        } 
-        catch (FormatException)
-        {
-          Console.WriteLine("Invalid input");
-        } 
-        catch (DivideByZeroException)
-        {
-          Console.WriteLine("Cannot divide by zero!");
-        }  
+    Console.WriteLine("Welcome to the Top Trumps Game!");
+    
+    // Variables: Create two players.
+
+    Player player1 = new Player("Player 1");
+    Player player2 = new Player("Player 2");
+
+    // Variables: Initialize the game with these two players
+
+    Game game = new Game(player1, player2);
+
+    // Procedures: Start the game.
+    game.StartGame();
 }
- }
+}
+}
